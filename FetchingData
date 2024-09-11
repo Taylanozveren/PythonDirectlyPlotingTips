@@ -1,0 +1,12 @@
+# Fetching Data
+import pandas as pd
+import requests
+from io import BytesIO
+
+URL = "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DV0101EN-SkillsNetwork/Data%20Files/Canada.csv"
+response = requests.get(URL)
+
+data = BytesIO(response.content)
+df_can = pd.read_csv(data)
+
+print('Data read into a pandas dataframe!')
